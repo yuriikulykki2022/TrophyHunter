@@ -23,7 +23,9 @@ export default function GameSidebar({
     onLogout,
 }: GameSidebarProps) {
     return (
-        <aside className={`w-80 lg:w-96 bg-slate-800 border-r border-slate-700 flex flex-col z-50 fixed md:relative inset-y-0 left-0 transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+        <aside
+            className={`w-80 lg:w-96 bg-slate-800 border-r border-slate-700 flex flex-col z-50 fixed md:relative inset-y-0 left-0 transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+        >
             <div
                 className="p-4 border-b border-slate-700 bg-slate-900/50 flex items-center gap-2 cursor-pointer hover:bg-slate-800 transition-colors group"
                 onClick={onBackToLanding}

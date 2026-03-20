@@ -10,7 +10,7 @@ interface AchievementCardProps {
     onRequestAIHint?: (
         gameName: string,
         achievementName: string,
-        achievementDescription: string
+        achievementDescription: string,
     ) => void;
 }
 
@@ -30,7 +30,8 @@ export default function AchievementCard({
         percentValue > 0 && percentValue < RARE_ACHIEVEMENT_THRESHOLD;
 
     // Показувати кнопку "Як?" після відкриття спойлера або для не-hidden досягнень
-    const showHowButton = gameName && onRequestAIHint && (!needsSpoiler || isRevealed);
+    const showHowButton =
+        gameName && onRequestAIHint && (!needsSpoiler || isRevealed);
 
     const handleAIHintClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -38,14 +39,16 @@ export default function AchievementCard({
             onRequestAIHint(
                 gameName,
                 achievement.name,
-                achievement.description || ""
+                achievement.description || "",
             );
         }
     };
 
     return (
         <div
-            onClick={() => needsSpoiler && !isRevealed && onToggleSpoiler(achievement.id)}
+            onClick={() =>
+                needsSpoiler && !isRevealed && onToggleSpoiler(achievement.id)
+            }
             className={`relative p-4 rounded-xl border flex gap-4 transition-all
         ${
             achievement.achieved

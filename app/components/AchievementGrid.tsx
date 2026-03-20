@@ -14,7 +14,7 @@ interface AchievementGridProps {
     onRequestAIHint?: (
         gameName: string,
         achievementName: string,
-        achievementDescription: string
+        achievementDescription: string,
     ) => void;
 }
 

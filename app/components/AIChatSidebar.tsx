@@ -171,79 +171,80 @@ export default function AIChatSidebar({
     return (
         <>
             <aside className="w-full sm:w-96 lg:w-[28rem] bg-slate-800 border-l border-slate-700 flex flex-col h-screen fixed sm:relative right-0 top-0 z-50">
-            {/* Header */}
-            <div className="p-4 border-b border-slate-700 flex items-center justify-between bg-slate-900/50">
-                <div className="flex items-center gap-2">
-                    <span className="text-xl">✨</span>
-                    <h2 className="font-bold text-lg">AI Помічник</h2>
-                </div>
-                <button
-                    onClick={onClose}
-                    className="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-slate-700"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
-                </button>
-            </div>
-
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
-                {messages.length === 0 ? (
-                    <div className="text-center text-slate-500 mt-10">
-                        <p className="text-4xl mb-4">💬</p>
-                        <p className="text-sm">
-                            Натисніть "AI підказка" на будь-якому прихованому
-                            досягненні, щоб отримати допомогу
-                        </p>
+                {/* Header */}
+                <div className="p-4 border-b border-slate-700 flex items-center justify-between bg-slate-900/50">
+                    <div className="flex items-center gap-2">
+                        <span className="text-xl">✨</span>
+                        <h2 className="font-bold text-lg">AI Помічник</h2>
                     </div>
-                ) : (
-                    messages.map((message) => (
-                        <div
-                            key={message.id}
-                            className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                    <button
+                        onClick={onClose}
+                        className="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-slate-700"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                         >
-                            <div
-                                className={`max-w-[85%] rounded-2xl px-4 py-2 ${
-                                    message.role === "user"
-                                        ? "bg-blue-600 text-white rounded-br-md"
-                                        : "bg-slate-700 text-slate-200 rounded-bl-md"
-                                }`}
-                            >
-                                <p className="text-sm whitespace-pre-wrap">
-                                    {message.content ||
-                                        (message.isStreaming
-                                            ? ""
-                                            : "Не вдалося згенерувати підказку. Спробуйте пізніше.")}
-                                    {message.isStreaming && message.content && (
-                                        <span className="inline-block w-2 h-4 bg-purple-400 ml-1 animate-pulse" />
-                                    )}
-                                </p>
-                            </div>
-                        </div>
-                    ))
-                )}
-                <div ref={messagesEndRef} />
-            </div>
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </div>
 
-            {/* Footer */}
-            <div className="p-4 border-t border-slate-700 bg-slate-900/30">
-                <p className="text-xs text-slate-500 text-center">
-                    Підказки генеруються AI та можуть бути неточними
-                </p>
-            </div>
-        </aside>
+                {/* Messages */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                    {messages.length === 0 ? (
+                        <div className="text-center text-slate-500 mt-10">
+                            <p className="text-4xl mb-4">💬</p>
+                            <p className="text-sm">
+                                Натисніть "AI підказка" на будь-якому
+                                прихованому досягненні, щоб отримати допомогу
+                            </p>
+                        </div>
+                    ) : (
+                        messages.map((message) => (
+                            <div
+                                key={message.id}
+                                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                            >
+                                <div
+                                    className={`max-w-[85%] rounded-2xl px-4 py-2 ${
+                                        message.role === "user"
+                                            ? "bg-blue-600 text-white rounded-br-md"
+                                            : "bg-slate-700 text-slate-200 rounded-bl-md"
+                                    }`}
+                                >
+                                    <p className="text-sm whitespace-pre-wrap">
+                                        {message.content ||
+                                            (message.isStreaming
+                                                ? ""
+                                                : "Не вдалося згенерувати підказку. Спробуйте пізніше.")}
+                                        {message.isStreaming &&
+                                            message.content && (
+                                                <span className="inline-block w-2 h-4 bg-purple-400 ml-1 animate-pulse" />
+                                            )}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    )}
+                    <div ref={messagesEndRef} />
+                </div>
+
+                {/* Footer */}
+                <div className="p-4 border-t border-slate-700 bg-slate-900/30">
+                    <p className="text-xs text-slate-500 text-center">
+                        Підказки генеруються AI та можуть бути неточними
+                    </p>
+                </div>
+            </aside>
         </>
     );
 }
