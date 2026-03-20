@@ -1,26 +1,37 @@
 {
-  "name": "trophy-ai",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+    "name": "trophy-ai",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {
+        "@ai-sdk/google": "^3.0.43",
+        "@ai-sdk/react": "^3.0.118",
+        "ai": "^6.0.116",
+        "next": "^16.2.0",
+        "next-auth": "^5.0.0-beta.30",
+        "openid-client": "^5.7.1",
+        "react": "19.2.3",
+        "react-dom": "19.2.3",
+        "steam-next-auth": "^1.0.2"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.1.6",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    },
+    "overrides": {
+        "steam-next-auth": {
+            "next": "$next"
+        }
+    }
 }
