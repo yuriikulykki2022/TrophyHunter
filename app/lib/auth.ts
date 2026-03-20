@@ -8,7 +8,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth(
             ? [
                   SteamProvider(req, {
                       clientSecret: process.env.STEAM_API_KEY!,
-                      callbackUrl: `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/api/auth/steam/callback`,
+                      callbackUrl: `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/api/auth/callback/steam`,
                   }),
               ]
             : [],
@@ -42,6 +42,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth(
             signIn: "/",
         },
 
-        trustHost: true,
+        trustHost: process.env.NODE_ENV === "production",
     }),
 );
